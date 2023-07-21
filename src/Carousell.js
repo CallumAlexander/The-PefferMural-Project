@@ -4,22 +4,30 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/zoom';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // Import required Swiper Modules
-import {FreeMode, Pagination} from 'swiper/modules';
+import {FreeMode, Pagination, Zoom} from 'swiper/modules';
 
 const Carousell = () => {
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+            const startYear = 2012 + index; // Assuming it starts from 2012
+            const endYear = startYear + 1;
+            return '<span class="' + className + '">' + startYear + '/' + endYear + '</span>';
+        },
+    };
     return (
         <Swiper
-            slidesPerView={3}
+            slidesPerView={2}
             spaceBetween={30}
+            zoom={true}
             freeMode={true}
-            pagination={{
-                clickable: true,
-            }}
-            modules={[FreeMode, Pagination]}
+            pagination={pagination}
+            modules={[FreeMode, Pagination, Zoom]}
             className="mySwiper"
         >
             <SwiperSlide>Slide 1</SwiperSlide>
