@@ -17,7 +17,9 @@ const Carousell = () => {
         renderBullet: function (index, className) {
             const startYear = 2012 + index; // Assuming it starts from 2012
             const endYear = startYear + 1;
-            return '<span class="' + className + '">' + startYear + '/' + endYear + '</span>';
+            // Add custom CSS to control the gap between bullets
+            const bulletStyle = `margin: 15px;`; // Adjust the margin value as needed
+            return `<span class="${className}" style="${bulletStyle}">${startYear}/${endYear}</span>`;
         },
     };
     return (
